@@ -212,6 +212,16 @@ class Vod extends V4Curl
         return base64_encode(json_encode($token));
     }
 
+    public function getFairPlayCertUrl(string $certId, int $expireSeconds): string
+    {
+        if ($expireSeconds > 0) {
+            $query["X-Expires"] = $expireSeconds;
+        }
+        $query["CertId"] = $certId;
+            
+        return $this->getRequestUrl("GetFairPlayCertUrl", ['query' => $query]);
+    }
+
     /**
      * @throws Throwable
      */
