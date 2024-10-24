@@ -219,7 +219,7 @@ class Vod extends V4Curl
         }
         $query["CertId"] = $certId;
             
-        return $this->getRequestUrl("GetFairPlayCertUrl", ['query' => $query]);
+        return $this->getRequestUrl("GetFairPlayCert", ['query' => $query]);
     }
 
     /**
